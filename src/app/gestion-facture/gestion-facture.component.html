@@ -1,0 +1,85 @@
+<div class="container-fluid h-100 vh-100">
+    <nav class="p-2 mb-2">
+        <div class="d-flex justify-content-between">
+            <div>
+                <button class="btn btn btn-outline-info" (click)="handleNouvelFacture()">Nouvelle Facture</button>
+
+              </div>
+           
+          
+          </div>
+     
+     
+    </nav>
+ 
+  
+    <ng-template #errors>
+      <div class="text-danger">{{ errorMessage }}</div>
+    </ng-template>
+  
+    <div class="card" full-height *ngIf="facture; else errors">
+      <div class="card-header">Liste Des Factures</div>
+      <div class="card-body">
+        <form [formGroup]="searchFormGroup" (ngSubmit)="handelSearchFacture()">
+          <div class="input-group">
+            <label class="input-group-text">chercher :</label>
+            <input type="text" class="form-control" formControlName="keyword">
+            <button class="btn btn-info w-auto" type="submit">
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
+        </form>
+     
+        <table class="table">
+          <thead>
+            <tr>
+              
+              <th>Num_F</th>
+              <th>Client</th>
+              <th>Montant</th>
+              <th>Date_Facturation</th>
+              <th>Statut</th>
+              <th>Date_Paiement</th>
+              <th>Methode</th>
+              <th>Reference</th>
+              <th>Remarque</th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let p of facture">
+            
+              <td>{{ p.NumeroFacture }}</td>
+              <td>{{ p.Id_Client }}</td>
+              <td>{{ p.Montant_Total }}</td>
+              <td>{{ p.Date_facturation|date:'shortDate' }}</td>
+              <td>{{ p.Statut_paiement }}</td>
+              <td>{{ p.Date_paiement |date:'shortDate' }}</td>
+              <td>{{ p.Methode_paiement }}</td>
+              <td>{{ p.Reference_paiement }}</td>
+              <td>{{ p.Remarque }}</td>
+              <td >
+                <button (click)="handelDeleteFacture(p)" class="btn btn-danger">
+                  <i class="fas fa-trash"></i>
+                </button></td>
+              
+              <td>
+                <button (click)="handelDeleteFacture(p)" class="btn btn-danger w-auto">
+                  <i class="bi bi-trash"></i>Modifier
+                </button>
+              </td>
+              <td>
+                <button class="btn btn btn-outline-info" (click)="printFacture(p)">Imprimer</button>
+
+              </td>
+           
+            </tr>
+          </tbody>
+        </table>
+       
+      
+      </div>
+    </div>
+  </div>
+  

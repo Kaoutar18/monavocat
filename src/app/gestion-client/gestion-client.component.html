@@ -1,0 +1,67 @@
+<div class="container-fluid h-100 vh-100">
+   
+    <nav class="p-2 mb-2 ">
+        <nav class="p-2 mb-2 ">
+            <button class="btn btn btn-outline-info" (click)="handleNouvelUtilisateur()">Neauveau Client</button>
+        
+          </nav>
+    </nav>
+    <ng-template #errors>
+      <div class="text-danger">{{ errorMessage }}</div>
+    </ng-template>
+    
+    <div class="card" *ngIf="client; else errors">
+        <div class="card-header"> Liste Des clients </div>
+        <div class="card-body">
+          <form [formGroup]="searchFormGroup" (ngSubmit)="handelSearchClient()">
+            <div class="input-group">
+              <label class="input-group-text">chercher :</label>
+              <input type="text" class="form-control" formControlName="keyword">
+              <button class="btn btn-info w-auto" type="submit">
+                <i class="fas fa-search"></i> 
+              </button>
+            </div>
+          </form>
+          
+          <table class="table">
+            <thead>
+              <tr>
+                <th>ID_Client</th> 
+                <th>Name</th>
+                <th>Prenom</th>      
+                <th>adresse</th>  
+                <th>Mail</th>  
+                <th>Telephone</th>  
+              
+               
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let p of client">
+                <td>{{ p.cin }}</td> 
+                <td>{{ p.nom }}</td>
+                <td>{{ p.prenom }}</td>
+                <td>{{ p.adresse }}</td>
+                <td>{{ p.mail }}</td>
+                <td>{{ p.telephone }}</td>
+             
+                <td  >
+                  <button (click)="handelDeleteClient(p)" class="btn btn-danger  ">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </td>
+                <td>
+                    <button (click)="handelModifierClient(p)" class="btn btn-danger w-auto ">
+                      <i class="bi bi-trash"></i>Modifier 
+                    </button>
+                  </td>
+              </tr>
+            </tbody>
+          </table>
+        
+    
+        </div>
+      </div>
+  </div>
+  

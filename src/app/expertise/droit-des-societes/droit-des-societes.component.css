@@ -1,0 +1,9 @@
+#menu {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 200px; /* Définissez la largeur souhaitée */
+    height: 100%; /* Ajustez la hauteur selon vos besoins */
+    background-color: #f1f1f1; /* Couleur de fond du menu */
+  }
+  

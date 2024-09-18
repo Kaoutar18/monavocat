@@ -1,0 +1,83 @@
+<div class="container mt-3 col-md-6 offset-md-3">
+    <h2>Ajouter une nouvelle Facture</h2>
+    <form [formGroup]="FactureForms" (ngSubmit)="handleNouvelFacture()" class="needs-validation" class="mb-3 mt-3">
+   
+      <div class="mb-3 mt-3" >
+        <label class="form-label">Numero_Facture</label>
+        <input type="text" formControlName="NumeroFacture" class="form-control" required>
+     <small class="text-danger" *ngIf="FactureForms.controls['NumeroFacture'].invalid && FactureForms.controls['NumeroFacture'].touched">
+      {{getErrormessage('NumeroFacture', FactureForms.controls['NumeroFacture'].errors)}}
+
+     </small>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Client</label>
+        <select formControlName="Id_Client" class="form-control" [(ngModel)]="selectedClientId" (change)="handleSelectedClientId()">
+          <option *ngFor="let clientId of idClients" [value]="clientId">{{ clientId }}</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Montant </label>
+        <input type="text" formControlName="Montant_Total" class="form-control" required>
+     <small class="text-danger" *ngIf="FactureForms.controls['Montant_Total'].invalid && FactureForms.controls['Montant_Total'].touched">
+      {{getErrormessage('Montant_Total', FactureForms.controls['Montant_Total'].errors)}}
+          </small> 
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Statut Paiement</label>
+        <select formControlName="Statut_paiement"class="form-control">
+          <option value="Réglé">Réglé</option>
+          <option value="Ouvert">Ouvert</option>
+          <option value="incomplet">incomplet</option>
+        </select>
+      </div>
+      
+      <div class="mb-3">
+        <div class="d-flex justify-content-between mt-3">
+        <label  class="form-label" >Date De Facturation:</label>
+        <input   class="form-control" formControlName="Date_facturation" type="date"  >
+
+    </div>
+      </div>
+  
+      <div class="mb-3">
+        <label class="form-label">Methode Paiement</label>
+        <select formControlName="Methode_paiement" class="form-control">
+          <option value="Espece">Espece</option>
+          <option value="Virement">Virement</option>
+          <option value="par cheque">Par chéque</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Reference De Paiement</label>
+        <input type="text" formControlName="Reference_paiement" class="form-control" required>
+       <small class="text-danger" *ngIf="FactureForms.controls['Reference_paiement'].invalid && FactureForms.controls['Reference_paiement'].touched">
+        {{getErrormessage('Reference_paiement', FactureForms.controls['Reference_paiement'].errors)}}
+       </small>
+      </div>
+      <div class="mb-3">
+        <div class="d-flex justify-content-between mt-3">
+        <label  class="form-label" >Date De Paiement</label>
+        <input   class="form-control" formControlName="Date_paiement"type="date"  >
+        </div>
+    </div>
+      <div class="mb-3">
+        <label class="form-label">Remarque</label>
+        <input type="text" formControlName="Remarque" class="form-control" required>
+       <small class="text-danger" *ngIf="FactureForms.controls['Remarque'].invalid && FactureForms.controls['Remarque'].touched">
+        {{getErrormessage('Remarque', FactureForms.controls['Remarque'].errors)}}
+       </small>
+      </div>
+    
+      <div class="d-flex justify-content-between mt-3">
+        <div>
+          <button class="btn btn-info" type="reset">Réinitialiser</button>
+        </div>
+        <div>
+          <button class="btn btn-info" type="submit">Ajouter</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  
+

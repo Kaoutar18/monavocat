@@ -1,0 +1,126 @@
+<div class="container-fluid h-100 vh-100">
+   
+    <nav class="p-2 mb-2 ">
+        <nav class="p-2 mb-2 ">
+            <button class="btn btn btn-outline-info" >Neauveau Dossier</button>
+        
+          </nav>
+    </nav>
+    <ng-template #errors>
+      <div class="text-danger"></div>
+    </ng-template>
+    
+    <div class="card" >
+        <div class="card-header"> Liste Des Dossiers </div>
+        <div class="card-body">
+          <form  >
+            <div class="input-group">
+              <label class="input-group-text">chercher :</label>
+              <input type="text" class="form-control" formControlName="keyword">
+              <button class="btn btn-info w-auto" type="submit">
+                <i class="fas fa-search"></i> 
+              </button>
+            </div>
+          </form>
+          
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Dossier_ID</th> 
+                <th>Num_Dossier</th> 
+                <th>Tribunal</th>
+                
+                <th>Etat</th>  
+                <th>Type_Service</th>  
+                <th>Description</th>  
+              
+               
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr >
+                <td>IDDOSSIER1</td> 
+                <td>D2000</td>
+                <td>Tribunal1</td>
+                <td>Cloturer</td>
+                <td>droit immobilier</td>
+                <td>dossier valider </td>
+             
+                <td  >
+                  <button  class="btn btn-danger  ">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </td>
+                <td>
+                    <button  class="btn btn-danger w-auto ">
+                      <i class="bi bi-trash"></i>Modifier 
+                    </button>
+                  </td>
+              </tr>
+              <tr >
+                <td>IDDOSSIER1</td> 
+                <td>D2000</td>
+                <td>Tribunal1</td>
+                <td>Cloturer</td>
+                <td>droit immobilier</td>
+                <td>dossier valider </td>
+             
+                <td  >
+                  <button  class="btn btn-danger  ">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </td>
+                <td>
+                    <button  class="btn btn-danger w-auto ">
+                      <i class="bi bi-trash"></i>Modifier 
+                    </button>
+                  </td>
+              </tr>
+              <tr >
+                <td>IDDOSSIER2</td> 
+                <td>D2001</td>
+                <td>Tribunal2</td>
+                <td>en cours</td>
+                <td>droit des affiares</td>
+                <td>Description2 </td>
+             
+                <td  >
+                  <button  class="btn btn-danger  ">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </td>
+                <td>
+                    <button  class="btn btn-danger w-auto ">
+                      <i class="bi bi-trash"></i>Modifier 
+                    </button>
+                  </td>
+              </tr>
+              <tr >
+                <td>IDDOSSIER3</td> 
+                <td>D2003</td>
+                <td>Tribunal1</td>
+                <td>pre-valider</td>
+                <td>droit des entrprises</td>
+                <td>dossier a rectifier </td>
+             
+                <td  >
+                  <button  class="btn btn-danger  ">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </td>
+                <td>
+                    <button  class="btn btn-danger w-auto ">
+                      <i class="bi bi-trash"></i>Modifier 
+                    </button>
+                  </td>
+              </tr>
+            </tbody>
+          </table>
+        
+    
+        </div>
+      </div>
+  </div>
+  
+

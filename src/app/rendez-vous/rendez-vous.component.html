@@ -1,0 +1,61 @@
+<div class="container">
+   
+  <nav class="p-2 mb-2 ">
+      <nav class="p-2 mb-2 ">
+          <button class="btn btn btn-outline-info" (click)="handleNouvelUtilisateur()">Nouveau Rendez-vous</button>
+      
+        </nav>
+       
+  </nav>
+  <ng-template #errors>
+    <div class="text-danger">{{ errorMessage }}</div>
+  </ng-template>
+  
+  <div class="card" *ngIf="rendezVous; else errors">
+      <div class="card-header"> Liste Des Rendez-Vous </div>
+      <div class="card-body">
+      
+        <form [formGroup]="searchFormGroup" (ngSubmit)="handelSearRendezVous()">
+          <div class="input-group">
+            <label class="input-group-text">chercher :</label>
+            <input type="text" class="form-control" formControlName="keyword">
+            <button class="btn btn-info w-auto" type="submit">
+              <i class="fas fa-search"></i> 
+            </button>
+          </div>
+        </form>
+        
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Client</th> 
+              <th>Avocat</th>
+              <th>Date</th>      
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let p of rendezVous">
+              <td>{{ p.Id_client }}</td> 
+              <td>{{ p.Id_avocat }}</td>
+              <td>{{ p.date }}</td>
+           
+              <td >
+                <button (click)="handelDeleteRendezVous(p)" class="btn btn-danger  ">
+                  <i class="fas fa-trash"></i>
+                </button>
+              </td>
+              <td>
+                  <button (click)="handelDeleteRendezVous(p)" class="btn btn-danger w-auto ">
+                    <i class="bi bi-trash"></i>Modifier 
+                  </button>
+                </td>
+            </tr>
+          </tbody>
+        </table>
+      
+  
+      </div>
+    </div>
+</div>
+

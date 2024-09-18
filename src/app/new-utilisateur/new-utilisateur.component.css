@@ -1,0 +1,18 @@
+.needs-validation .form-control:required {
+    border-color: #ced4da;
+  }
+  
+  .needs-validation .form-control:required:focus {
+    border-color: #bac8f3;
+    box-shadow: none;
+  }
+  
+  .needs-validation .form-control:invalid {
+    border-color: #f8d7da;
+  }
+  
+  .needs-validation .form-control:invalid:focus {
+    border-color: #f8d7da;
+    box-shadow: none;
+  }
+  

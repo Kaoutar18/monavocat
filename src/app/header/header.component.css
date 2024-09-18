@@ -1,0 +1,9 @@
+.theme-button-one {
+    line-height: 40px;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #fff;
+    border-radius: 5px;
+    padding: 0 10px;
+}

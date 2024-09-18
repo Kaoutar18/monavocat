@@ -1,0 +1,58 @@
+<div class="container mt-3 col-md-6 offset-md-3">
+
+    <h2>Ajouter un nouveau Client</h2>
+     <form [formGroup]="ClientFormGroup" (ngSubmit)="handleNouveauclient()" class="needs-validation" > 
+      <div class="mb-3">
+        <label class="form-label">CIN</label>
+        <input type="text" formControlName="cin" class="form-control" required>
+     <small class="text-danger" *ngIf="ClientFormGroup.controls['cin'].invalid && ClientFormGroup.controls['cin'].touched">
+      {{getErrormessage('cin', ClientFormGroup.controls['cin'].errors)}}
+     </small>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Nom</label>
+        <input type="text" formControlName="nom" class="form-control" required>
+     <small class="text-danger" *ngIf="ClientFormGroup.controls['nom'].invalid && ClientFormGroup.controls['nom'].touched">
+      {{getErrormessage('nom', ClientFormGroup.controls['nom'].errors)}}
+     </small>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Prénom</label>
+        <input type="text" formControlName="prenom" class="form-control" required>
+   <small class="text-danger" *ngIf="ClientFormGroup.controls['prenom'].invalid && ClientFormGroup.controls['prenom'].touched">
+    {{getErrormessage('prenom', ClientFormGroup.controls['prenom'].errors)}}
+          </small> 
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Adresse</label>
+        <input type="text" formControlName="adresse" class="form-control" required>
+   <small class="text-danger" *ngIf="ClientFormGroup.controls['adresse'].invalid && ClientFormGroup.controls['adresse'].touched">
+    {{getErrormessage('adresse', ClientFormGroup.controls['adresse'].errors)}}
+          </small> 
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Email</label>
+        <input type="text" formControlName="mail" class="form-control" required>
+     <small class="text-danger" *ngIf="ClientFormGroup.controls['mail'].invalid && ClientFormGroup.controls['mail'].touched">
+      {{getErrormessage('mail', ClientFormGroup.controls['mail'].errors)}}
+          </small> 
+      </div>
+  <div>
+        <label class="form-label">Téléphone</label>
+        <input type="text" formControlName="telephone" class="form-control" required>
+       <small class="text-danger" *ngIf="ClientFormGroup.controls['telephone'].invalid && ClientFormGroup.controls['telephone'].touched">
+        {{getErrormessage('telephone', ClientFormGroup.controls['telephone'].errors)}}
+       </small>
+      </div>
+    
+      <div class="d-flex justify-content-between mt-3">
+        <div>
+          <button class="btn btn-info" type="reset">Réinitialiser</button>
+        </div>
+        <div>
+          <button class="btn btn-info" type="submit" >Ajouter</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  

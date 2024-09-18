@@ -1,0 +1,53 @@
+<div class="container mt-3 col-md-6 offset-md-3">
+    <h2>Ajouter un nouveau Rendez-vous</h2>
+    <form [formGroup]="RendezvousFormGroup" (ngSubmit)="handleNouvelRendezvous()" class="needs-validation">
+      <div class="mb-3  mt-3">
+     
+        
+        <div class="mb-3">
+            <div class="d-flex justify-content-between mt-3">
+            <label  class="form-label" >Date:</label>
+            <input   class="form-label" type="date"  name="dateInput"formControlName="date">
+       
+        </div>
+          </div>
+        <small class="text-danger" *ngIf="RendezvousFormGroup.controls['date'].invalid && RendezvousFormGroup.controls['date'].touched">
+          Date est requis.
+        </small>
+      </div>
+      <div class="mb-3">
+        <div class="d-flex justify-content-between mt-3">
+          <label class="form-label" >Heure:</label>
+          <input class="form-label" type="time"  name="timeInput" formControlName="Heure">
+        </div>
+        <small class="text-danger" *ngIf="RendezvousFormGroup.controls['Heure'].invalid && RendezvousFormGroup.controls['Heure'].touched">
+          Heure est requis.
+        </small>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Avocat</label>
+        <select class="form-control"formControlName="Id_avocat" [(ngModel)]="selecteduserId" (change)="handleSelectedAvocatID()">
+          <option *ngFor="let userid of idAvocats " [value]="userid">{{ userid }}</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Client </label>
+        <select formControlName="Id_client" class="form-control" [(ngModel)]="selectedClientId" (change)="handleSelectedClientId()">
+          <option *ngFor="let clientId of idClients" [value]="clientId">{{ clientId }}</option>
+        </select>
+      </div>
+    
+      
+     
+      <div class="d-flex justify-content-between">
+        <div>
+            <button class="btn btn-info" type="reset">Réinitialiser</button>
+          </div>
+        <div>
+          <button class="btn btn-info" type="submit">Ajouter</button>
+        </div>
+      
+      </div>
+    </form>
+  </div>
+  

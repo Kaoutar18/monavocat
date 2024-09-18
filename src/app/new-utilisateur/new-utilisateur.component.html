@@ -1,0 +1,73 @@
+<div class="container mt-3 col-md-6 offset-md-3">
+    <h2>Ajouter un nouvel utilisateur</h2>
+    <form [formGroup]="utilisateurFormGroup" (ngSubmit)="handleNouvelUtilisateur()" class="needs-validation">
+      <div class="mb-3">
+        <label class="form-label">Code</label>
+        <input type="text" formControlName="code" class="form-control" required>
+        <small class="text-danger" *ngIf="utilisateurFormGroup.controls['code'].invalid && utilisateurFormGroup.controls['code'].touched">
+          {{getErrormessage('code', utilisateurFormGroup.controls['code'].errors)}}
+        </small>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Nom</label>
+        <input type="text" formControlName="nom" class="form-control" required>
+        <small class="text-danger" *ngIf="utilisateurFormGroup.controls['nom'].invalid && utilisateurFormGroup.controls['nom'].touched">
+          {{getErrormessage('nom', utilisateurFormGroup.controls['nom'].errors)}}
+          </small>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Prénom</label>
+        <input type="text" formControlName="prenom" class="form-control" required>
+        <small class="text-danger" *ngIf="utilisateurFormGroup.controls['prenom'].invalid && utilisateurFormGroup.controls['prenom'].touched">
+          {{getErrormessage('prenom', utilisateurFormGroup.controls['prenom'].errors)}}
+          </small>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Email</label>
+        <input type="text" formControlName="mail" class="form-control" required>
+        <small class="text-danger" *ngIf="utilisateurFormGroup.controls['mail'].invalid && utilisateurFormGroup.controls['mail'].touched">
+          {{getErrormessage('mail', utilisateurFormGroup.controls['mail'].errors)}}
+          </small>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Mot de passe</label>
+        <input type="password" formControlName="password" class="form-control" required>
+        <small class="text-danger" *ngIf="utilisateurFormGroup.controls['password'].invalid && utilisateurFormGroup.controls['password'].touched">
+          {{getErrormessage('password', utilisateurFormGroup.controls['password'].errors)}}
+          </small>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Adresse</label>
+        <input type="text" formControlName="adresse" class="form-control" required>
+        <small class="text-danger" *ngIf="utilisateurFormGroup.controls['adresse'].invalid && utilisateurFormGroup.controls['adresse'].touched">
+          {{getErrormessage('adresse', utilisateurFormGroup.controls['adresse'].errors)}}
+          </small>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Téléphone</label>
+        <input type="text" formControlName="telephone" class="form-control" required>
+        <small class="text-danger" *ngIf="utilisateurFormGroup.controls['telephone'].invalid && utilisateurFormGroup.controls['telephone'].touched">
+          {{getErrormessage('telephone', utilisateurFormGroup.controls['telephone'].errors)}}
+          </small>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Rôle</label>
+        <select formControlName="Role" class="form-control">
+          <option value="admin">Admin</option>
+          <option value="Avocat">Avocat</option>
+          <option value="secretaire">Secrétaire</option>
+        </select>
+      </div>
+      
+      <div class="d-flex justify-content-between">
+        <div>
+            <button class="btn btn-info" type="reset">Réinitialiser</button>
+          </div>
+        <div>
+          <button class="btn btn-info" type="submit">Ajouter</button>
+        </div>
+      
+      </div>
+    </form>
+  </div>
+  

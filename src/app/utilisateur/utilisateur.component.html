@@ -1,0 +1,78 @@
+<div class="container-fluid h-100 vh-100">
+  <nav class="p-2 mb-2 ">
+    <button class="btn btn btn-outline-info" (click)="handleNouvelUtilisateur()">Nouvel Utilisateur</button>
+
+  </nav>
+    <ng-template #errors>
+      <div class="text-danger">{{ errorMessage }}</div>
+    </ng-template>
+    
+    <div class="card" *ngIf="utilisateur; else errors">
+        <div class="card-header"> Liste Des utilisateurs </div>
+        <div class="card-body">
+          <form [formGroup]="searchFormGroup" (ngSubmit)="handelSearchUtilisateur()">
+            <div class="input-group">
+              <label class="input-group-text">chercher :</label>
+              <input type="text" class="form-control" formControlName="keyword">
+              <button class="btn btn-info w-auto" type="submit">
+                <i class="fas fa-search"></i> 
+              </button>
+            </div>
+          </form>
+          
+          <table class="table">
+            <thead>
+              <tr>
+                <th>ID</th> 
+            
+                <th>Name</th>
+                <th>Prenom</th>      
+                <th>adresse</th> 
+                <th>Password</th> 
+                <th>Mail</th>  
+                <th>Telephone</th>  
+                <th>role</th>    
+               
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let p of utilisateur">
+                <td>{{ p.userId }}</td> 
+              
+                <td>{{ p.nom }}</td>
+                <td>{{ p.prenom }}</td>
+                <td>{{ p.adresse }}</td>
+                <td>{{ p.password }}</td>
+                <td>{{ p.mail }}</td>
+                <td>{{ p.telephone }}</td>
+                <td>{{ p.Role }}</td>
+                <td>
+                  <i *ngIf="p.etat==true" class="bi bi-heart-fill text-success"></i>
+              </td> 
+              <td>
+                <button (click)="handelEtatCompte(p)" [ngClass]="p.etat==true?'btn-success':'btn-danger'" class="btn" >
+                  <span *ngIf="p.etat==true">Compte activer </span>
+                  <span *ngIf="p.etat==false">Compte desactiver </span>
+              </button>
+            </td>
+                <td >
+                  <button (click)="handelDeleteUtilisateur(p)" class="btn btn-danger  ">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </td>
+                <td>
+                    <button (click)="handelDeleteUtilisateur(p)" class="btn btn-danger w-auto ">
+                      <i class="bi bi-trash"></i>Modifier 
+                    </button>
+                  </td>
+              </tr>
+            </tbody>
+          </table>
+        
+    
+        </div>
+      </div>
+  </div>
+ 
+  
